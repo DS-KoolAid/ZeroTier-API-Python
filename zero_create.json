@@ -1,0 +1,52 @@
+{
+    "rulesSource": "Crucible_Default",
+    "description" : "This is a test network",
+    "capabilitiesByName": {},
+    "tagsByName": {},
+    "config": {
+        "name" : "zero_tier_test",
+        "private": true,
+        "multicastLimit": 32,
+        "routes": [
+            {
+                "target": "10.147.19.0/24"
+            }
+        ],
+        "rules": [
+            {
+                "etherType": 2048,
+                "not": true,
+                "or": false,
+                "type": "MATCH_ETHERTYPE"
+            },
+            {
+                "etherType": 2054,
+                "not": true,
+                "or": false,
+                "type": "MATCH_ETHERTYPE"
+            },
+            {
+                "etherType": 34525,
+                "not": true,
+                "or": false,
+                "type": "MATCH_ETHERTYPE"
+            },
+            {
+                "type": "ACTION_DROP"
+            },
+            {
+                "type": "ACTION_ACCEPT"
+            }
+        ],
+        "tags": [],
+        "capabilities": [],
+        "v4AssignMode": {
+            "zt": true
+        },
+        "v6AssignMode": {
+            "6plane": false,
+            "rfc4193": false,
+            "zt": false
+        }
+    }
+}
